@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TEIVRIM — программист C++ / Unreal Engine</title>
+<meta name="description" content="Геймплей на C++ под UE5, core-системы, AI, инструменты и редакторы, профилирование. TEIVRIM">
+<meta name="author" content="TEIVRIM">
+<link rel="canonical" href="https://teivrim.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://teivrim.github.io/">
+<meta property="og:site_name" content="TEIVRIM">
+<meta property="og:title" content="TEIVRIM — программист C++ / Unreal Engine">
+<meta property="og:description" content="Геймплей на C++ под UE5, core-системы, AI, редакторы и инструменты, профилирование. Код в портфолио открыт.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TEIVRIM — программист C++ / Unreal Engine">
+<meta name="twitter:description" content="Геймплей на C++ под UE5, инструменты и редакторы. Код в портфолио открыт.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0d12'/%3E%3Ctext x='16' y='23' font-size='19' font-family='monospace' font-weight='bold' fill='%235eead4' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#0b0d12;--card:#151926;--line:#252b3d;--fg:#e6e9f2;--muted:#98a0b8;
+--dim:#6b7391;--accent:#5eead4;--warn:#fbbf24;--ok:#34d399;
+--mono:'JetBrains Mono',ui-monospace,Consolas,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);
+font:16px/1.65 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+a{color:var(--accent);text-decoration:none}
+.wrap{max-width:900px;margin:0 auto;padding:0 24px}
+header{border-bottom:1px solid var(--line);background:rgba(11,13,18,.9);
+position:sticky;top:0;backdrop-filter:blur(10px)}
+header .wrap{display:flex;align-items:center;height:58px;gap:20px}
+.logo{font-family:var(--mono);font-weight:700;letter-spacing:.14em;font-size:15px}
+.logo span{color:var(--accent)}
+nav{margin-left:auto}
+nav a{color:var(--muted);font-size:14px;margin-left:20px}
+nav a:hover{color:var(--fg);text-decoration:none}
+.hero{padding:64px 0 40px;
+background:radial-gradient(700px 260px at 12% -10%,rgba(94,234,212,.10),transparent 60%),
+radial-gradient(600px 240px at 90% 0%,rgba(129,140,248,.10),transparent 60%)}
+h1{font-size:clamp(26px,4.6vw,42px);line-height:1.12;letter-spacing:-.02em}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{color:var(--muted);font-size:17px;margin-top:14px;max-width:64ch}
+.cta{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 22px;border-radius:8px;font-weight:600;
+font-size:14px}
+.btn-p{background:var(--accent);color:#04211d}
+.btn-p:hover{text-decoration:none;background:#7df5e2}
+.btn-g{border:1px solid var(--line);color:var(--fg)}
+.btn-g:hover{border-color:var(--accent);text-decoration:none;color:var(--accent)}
+section{padding:44px 0;border-bottom:1px solid var(--line)}
+h2{font-size:22px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:6px 0 26px;font-size:15px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:12px;
+padding:24px;margin-bottom:16px}
+.svc h3{font-size:18px;margin-bottom:4px}
+.svc .who{color:var(--dim);font-size:14px;margin-bottom:16px}
+.svc ul{list-style:none;display:grid;gap:8px;margin:0 0 18px}
+.svc li{padding-left:22px;position:relative;font-size:15px}
+.svc li:before{content:'';position:absolute;left:0;top:.55em;width:11px;height:6px;
+border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);
+transform:rotate(-45deg)}
+.meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding-top:16px;
+border-top:1px solid var(--line)}
+.price{font-family:var(--mono);font-weight:700;font-size:18px;color:var(--accent)}
+.tag{font-family:var(--mono);font-size:12px;color:var(--dim);
+border:1px solid var(--line);padding:3px 8px;border-radius:999px}
+.badge{font-family:var(--mono);font-size:11px;padding:3px 8px;border-radius:999px;
+border:1px solid var(--line);color:var(--muted)}
+.badge.ok{color:var(--ok);border-color:rgba(52,211,153,.35)}
+.badge.warn{color:var(--warn);border-color:rgba(251,191,36,.35)}
+.proof{background:rgba(94,234,212,.05);border:1px solid rgba(94,234,212,.22);
+border-radius:10px;padding:14px 18px;margin-top:16px;font-size:14px;color:#b8f5ea}
+.proof b{color:var(--accent)}
+.note{background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.28);
+border-radius:10px;padding:16px 20px;font-size:14.5px;color:#fde68a}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{color:var(--dim);font-size:12.5px;text-transform:uppercase;letter-spacing:.05em}
+td.mono,.mono{font-family:var(--mono)}
+footer{padding:36px 0;color:var(--dim);font-size:13.5px}
+@media(max-width:600px){.btn{width:100%}.meta{gap:8px}}
+</style></head><body>
+<header><div class="wrap">
+  <a class="logo" href="index.html"><span>TEIVRIM</span>_SERVICES</a>
+  <nav><a href="index.html">Услуги</a><a href="proof.html">Портфолио</a></nav>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <h1>Программист <em>C++ / Unreal Engine</em></h1>
+  <p class="lead">Пишу игровой код, движки и инструменты. Не «дизайнер с
+  премиумом», не « универсал» — конкретно: геймплей, core-системы, AI,
+  редакторы под проект, профилирование. Отвечаю за то, что отдал.</p>
+  <div class="cta">
+    <a class="btn btn-p" href="tg://resolve?domain=TEIVRIM">Написать в Telegram</a>
+    <a class="btn btn-g" href="proof.html">Посмотреть код</a>
+  </div>
+</div></div>
+
+<section><div class="wrap">
+  <h2>Что беру</h2>
+  <div class="sub">Задачи, где нужен именно C++-программист.</div>
+
+    <div class="svc">
+      <h3>Геймплей-программист Unreal Engine (C++)</h3>
+      <div class="who">студии, которым нужен gameplay/Systems/AI на UE5</div>
+      <ul><li>Gameplay-код на C++ под UE 5: персонажи, StateTree, EQS, AI-контроллеры</li><li>Core-системы: инвентарь, прогрессия, сохранения, сетевые реплики</li><li>Спавнеры, триггеры, чекпоинты, интерактивные объекты</li><li>UI на UMG, привязка к gameplay-логике</li><li>Рефакторинг чужого кода и разбор легаси-проектов</li></ul>
+      <div class="proof"><b>Доказательство:</b> Unreal Engine 5.8 Gameplay Kit: 3 варианта — 5 121 строк собственного кода, стек Unreal Engine 5.8, C++, StateTree. Требует починки зависимостей, код открыт.</div>
+      <div class="meta">
+        <span class="price">от 25 000 ₽ / задача</span>
+        <span class="tag">3–10 дней на задачу</span>
+        <span class="tag">UE 5, C++20, StateTree, EQS, UMG, UBT</span>
+      </div>
+    </div>
+
+    <div class="svc">
+      <h3>Инструменты и редакторы на C++/OpenGL</h3>
+      <div class="who">студии, которым нужен свой тулсет вместо плагина</div>
+      <ul><li>Редактор под проект: панели, инспектор, таймлайн, нодовый граф</li><li>Слоистый рендерер: композитор, blend-режимы, render-to-texture</li><li>Импорт ассетов: FBX/OBJ через Assimp, свой парсер при надобности</li><li>Undo/redo, система команд, подсистема плагинов</li><li>Сборка под MinGW и MSVC, без внешних зависимостей</li></ul>
+      <div class="proof"><b>Доказательство:</b> PolygonEditor 3D — 3 801 строк собственного кода, стек C++17, CMake, OpenGL. Собирается, проверено.</div>
+      <div class="meta">
+        <span class="price">от 40 000 ₽ / инструмент</span>
+        <span class="tag">1–3 недели</span>
+        <span class="tag">C++17/20, CMake, OpenGL, GLFW, ImGui, Assimp</span>
+      </div>
+    </div>
+
+    <div class="svc">
+      <h3>Профилирование и починка производительности</h3>
+      <div class="who">проекты, которые тормозят и непонятно почему</div>
+      <ul><li>Профилирование: где уходит кадр, память, время загрузки</li><li>Починка именно узких мест, а не «перепишем всё»</li><li>Профилирование загрузки ассетов и текстур</li><li>Сравнение билдов, отчёт с цифрами до/после</li></ul>
+      <div class="proof"><b>Доказательство:</b> PolygonEditor 3D — 3 801 строк собственного кода, стек C++17, CMake, OpenGL. Собирается, проверено.</div>
+      <div class="meta">
+        <span class="price">от 15 000 ₽ / диагностика</span>
+        <span class="tag">2–5 дней</span>
+        <span class="tag">RenderDoc, PIX, Tracy, profilers UE, вендорные счётчики</span>
+      </div>
+    </div>
+
+    <div class="svc">
+      <h3>Обучение C++/Unreal-разработчиков Rust</h3>
+      <div class="who">команды, которые переходят с C++ на Rust</div>
+      <ul><li>Готовый курс: 20 модулей, 14 912 строк, ноль зависимостей</li><li>Владение памятью, лайфтаймы, trait-объекты, без сахара из crates</li><li>Таблица соответствия C++ → Rust</li><li>Харнесс с автопроверкой заданий</li></ul>
+      <div class="proof"><b>Доказательство:</b> Rust с нуля до движка: 20 модулей — 14 912 строк собственного кода, стек Rust 2024, Cargo, std-only. Собирается, проверено.</div>
+      <div class="meta">
+        <span class="price">от 20 000 ₽ за группу до 5 человек</span>
+        <span class="tag">по договорённости</span>
+        <span class="tag">Rust 2024, std-only, Cargo</span>
+      </div>
+    </div>
+
+    <div class="svc">
+      <h3>Разбор и перенос легаси-кода</h3>
+      <div class="who">тем, кому достался старый проект и сроки горят</div>
+      <ul><li>Чтение чужого кода и карта архитектуры за 2–3 дня</li><li>Оценка состояния: что чинить, что выбросить, что оставить</li><li>План приоритетов по соотношению «эффект / риск»</li></ul>
+      <div class="proof"><b>Доказательство:</b> TDEvuris Security Toolkit — 3 253 строк собственного кода, стек C++17, CMake, Win32. Собирается, проверено.</div>
+      <div class="meta">
+        <span class="price">от 12 000 ₽</span>
+        <span class="tag">2–3 дня</span>
+        <span class="tag">C, C++, Win32, Unreal, разные годы</span>
+      </div>
+    </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Как работаю</h2>
+  <div class="sub">Порядок один и тот же, чтобы не было сюрпризов.</div>
+  <table>
+    <thead><tr><th>Шаг</th><th>Что происходит</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">1</td><td>Уточняю критерии приёмки. Если задача
+        сформулирована как «сделать, чтобы работало» — это плохой знак, и я
+        это проговариваю сразу, а не после.</td></tr>
+      <tr><td class="mono">2</td><td>Оценка по объёму. Если не влезает в ваш
+        бюджет — говорю прямо, что урезать, и предлагаю урезанный вариант.
+        Не беру задачу и не делаю её наполовину.</td></tr>
+      <tr><td class="mono">3</td><td>Сделано и проверено сборкой. Отдаю код,
+        который собирается у вас одной командой, и кратко — почему решение
+        такое.</td></tr>
+    </tbody>
+  </table>
+  <div class="note" style="margin-top:20px">Оплата: по этапам или по факту,
+  как вам удобнее. Предпочитаю НПД (самозанятость) — это договор, а не
+  «верьте на слово». Для работодателя оформление на физлицо — тоже нормально,
+  если нужен акт.</div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Портфолио</h2>
+  <div class="sub">Не «проекты на фриланс-бирже». Реальный код, который
+  написан с нуля и лежит в портфолио целиком.</div>
+  <table>
+    <thead><tr><th>Проект</th><th>Строк кода</th><th>Зависимостей</th>
+      <th>Состояние</th></tr></thead>
+    <tbody>
+<tr><td>Rust с нуля до движка: 20 модулей</td><td class='mono'>14912</td><td class='mono'>0</td><td>✅ собирается</td></tr>
+<tr><td>Novell Engine v0.3.0</td><td class='mono'>3319</td><td class='mono'>0</td><td>✅ собирается</td></tr>
+<tr><td>Eblya 2D Engine Editor</td><td class='mono'>4940</td><td class='mono'>4</td><td>нужна починка</td></tr>
+<tr><td>Unreal Engine 5.8 Gameplay Kit: 3 варианта</td><td class='mono'>5121</td><td class='mono'>0</td><td>нужна починка</td></tr>
+<tr><td>ImGui Editor Starter Kit</td><td class='mono'>4978</td><td class='mono'>4</td><td>нужна починка</td></tr>
+<tr><td>PolygonEditor 3D</td><td class='mono'>3801</td><td class='mono'>4</td><td>✅ собирается</td></tr>
+<tr><td>TDEvuris Security Toolkit</td><td class='mono'>3253</td><td class='mono'>0</td><td>✅ собирается</td></tr>
+<tr><td>Spring Boot Social Backend Kit</td><td class='mono'>1785</td><td class='mono'>6</td><td>нужна починка</td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:18px"><a href="proof.html">Подробнее о каждом →
+  </a></p>
+</div></section>
+
+<footer><div class="wrap">
+  <div>
+    © TEIVRIM 2026 · Москва / удалённо · самозанятый (НПД) · договор с физлицом<br>
+    Telegram: <a href="tg://resolve?domain=TEIVRIM">TEIVRIM</a>
+    · GitHub: <a href="https://github.com/Teivrim">Teivrim</a>
+  </div>
+  <div>Полный код портфолио доступен по запросу</div>
+</div></footer>
+</body></html>
