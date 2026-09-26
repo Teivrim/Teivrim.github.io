@@ -68,6 +68,7 @@ border:1px solid var(--line);color:var(--muted)}
 .proof{background:rgba(94,234,212,.05);border:1px solid rgba(94,234,212,.22);
 border-radius:10px;padding:14px 18px;margin-top:16px;font-size:14px;color:#b8f5ea}
 .proof b{color:var(--accent)}
+.proof .ok{color:var(--ok);font-weight:600}
 .note{background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.28);
 border-radius:10px;padding:16px 20px;font-size:14.5px;color:#fde68a}
 table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px}
@@ -101,7 +102,7 @@ footer{padding:36px 0;color:var(--dim);font-size:13.5px}
       <h3>Геймплей-программист Unreal Engine (C++)</h3>
       <div class="who">студии, которым нужен gameplay/Systems/AI на UE5</div>
       <ul><li>Gameplay-код на C++ под UE 5: персонажи, StateTree, EQS, AI-контроллеры</li><li>Core-системы: инвентарь, прогрессия, сохранения, сетевые реплики</li><li>Спавнеры, триггеры, чекпоинты, интерактивные объекты</li><li>UI на UMG, привязка к gameplay-логике</li><li>Рефакторинг чужого кода и разбор легаси-проектов</li></ul>
-      <div class="proof"><b>Доказательство:</b> Unreal Engine 5.8 Gameplay Kit: 3 варианта — 5 121 строк собственного кода, стек Unreal Engine 5.8, C++, StateTree. Требует починки зависимостей, код открыт.</div>
+      <div class="proof"><b>Показать код:</b> Unreal Engine 5.8 Gameplay Kit: 3 варианта. Исходники закрыты пока готовлю релиз — напишите, и пришлю выборочно.</div>
       <div class="meta">
         <span class="price">от 25 000 ₽ / задача</span>
         <span class="tag">3–10 дней на задачу</span>
@@ -110,10 +111,22 @@ footer{padding:36px 0;color:var(--dim);font-size:13.5px}
     </div>
 
     <div class="svc">
+      <h3>AI в геймплее: модели поведения, обучение с подкреплением</h3>
+      <div class="who">студиям, которым нужен ИИ-агент в игре, а не «магия» в коде</div>
+      <ul><li>Замкнутый контур: наблюдение → модель → действие → среда</li><li>Интеграция внешних моделей через JSONL без пересборки игры</li><li>Адаптеры под PyTorch / ONNX / spiking-сети / RL</li><li>Симуляция сенсоров и биологических ограничений, а не абстракция</li><li>Ограничение unsafe на уровне модуля: мост в C не расползается</li></ul>
+      <div class="proof"><b>Доказательство:</b> <a href="https://github.com/Teivrim/FlyTest">FlyTest — замкнутый контур ИИ-агента</a> — 12 проекта в сторе, стек Rust 2024, C (single-header), Blender. <span class="ok">Собирается в CI.</span></div>
+      <div class="meta">
+        <span class="price">от 35 000 ₽ / подсистема</span>
+        <span class="tag">2–5 недель</span>
+        <span class="tag">Rust, C, Python, Blender, ONNX</span>
+      </div>
+    </div>
+
+    <div class="svc">
       <h3>Инструменты и редакторы на C++/OpenGL</h3>
       <div class="who">студии, которым нужен свой тулсет вместо плагина</div>
       <ul><li>Редактор под проект: панели, инспектор, таймлайн, нодовый граф</li><li>Слоистый рендерер: композитор, blend-режимы, render-to-texture</li><li>Импорт ассетов: FBX/OBJ через Assimp, свой парсер при надобности</li><li>Undo/redo, система команд, подсистема плагинов</li><li>Сборка под MinGW и MSVC, без внешних зависимостей</li></ul>
-      <div class="proof"><b>Доказательство:</b> PolygonEditor 3D — 3 801 строк собственного кода, стек C++17, CMake, OpenGL. Собирается, проверено.</div>
+      <div class="proof"><b>Доказательство:</b> <a href="https://github.com/Teivrim/PolygonEditor">PolygonEditor 3D</a> — 3 801 строк, стек C++17, CMake, OpenGL. <span class="ok">Собирается в CI.</span></div>
       <div class="meta">
         <span class="price">от 40 000 ₽ / инструмент</span>
         <span class="tag">1–3 недели</span>
@@ -125,7 +138,7 @@ footer{padding:36px 0;color:var(--dim);font-size:13.5px}
       <h3>Профилирование и починка производительности</h3>
       <div class="who">проекты, которые тормозят и непонятно почему</div>
       <ul><li>Профилирование: где уходит кадр, память, время загрузки</li><li>Починка именно узких мест, а не «перепишем всё»</li><li>Профилирование загрузки ассетов и текстур</li><li>Сравнение билдов, отчёт с цифрами до/после</li></ul>
-      <div class="proof"><b>Доказательство:</b> PolygonEditor 3D — 3 801 строк собственного кода, стек C++17, CMake, OpenGL. Собирается, проверено.</div>
+      <div class="proof"><b>Доказательство:</b> <a href="https://github.com/Teivrim/PolygonEditor">PolygonEditor 3D</a> — 3 801 строк, стек C++17, CMake, OpenGL. <span class="ok">Собирается в CI.</span></div>
       <div class="meta">
         <span class="price">от 15 000 ₽ / диагностика</span>
         <span class="tag">2–5 дней</span>
@@ -137,7 +150,7 @@ footer{padding:36px 0;color:var(--dim);font-size:13.5px}
       <h3>Браузерные игры под заказ: геймплей, фичи, порт</h3>
       <div class="who">студии и издатели, которым нужен работающий прототип или порт на другую площадку</div>
       <ul><li>Геймплей и механика на Canvas 2D: движение, коллизии, спавн, камера</li><li>Кроссплатформенный ввод: клавиатура, тач, мобильный джойстик</li><li>Прогрессия и монетизация: волны, магазин улучшений, дейлики, кредиты</li><li>Адаптер официального Yandex Games SDK — листинг на площадке</li><li>Сборка в zip под требования площадки, ассеты для карточки</li></ul>
-      <div class="proof"><b>Доказательство:</b> YandexGame — 4 браузерные игры — 0 строк собственного кода, стек JavaScript, Canvas 2D, Yandex Games SDK. Собирается, проверено.</div>
+      <div class="proof"><b>Доказательство:</b> <a href="https://github.com/Teivrim/YandexGame">YandexGame — 4 браузерные игры</a> — 4 проекта в сторе, стек JavaScript, Canvas 2D, Yandex Games SDK. <span class="ok">Собирается в CI.</span></div>
       <div class="meta">
         <span class="price">от 30 000 ₽ / игра</span>
         <span class="tag">2–4 недели</span>
@@ -149,7 +162,7 @@ footer{padding:36px 0;color:var(--dim);font-size:13.5px}
       <h3>Обучение C++/Unreal-разработчиков Rust</h3>
       <div class="who">команды, которые переходят с C++ на Rust</div>
       <ul><li>Готовый курс: 20 модулей, 14 912 строк, ноль зависимостей</li><li>Владение памятью, лайфтаймы, trait-объекты, без сахара из crates</li><li>Таблица соответствия C++ → Rust</li><li>Харнесс с автопроверкой заданий</li></ul>
-      <div class="proof"><b>Доказательство:</b> Rust с нуля до движка: 20 модулей — 14 912 строк собственного кода, стек Rust 2024, Cargo, std-only. Собирается, проверено.</div>
+      <div class="proof"><b>Доказательство:</b> <a href="https://github.com/Teivrim/rust-course">Rust с нуля до движка: 20 модулей</a> — 14 912 строк, стек Rust 2024, Cargo, std-only. <span class="ok">Собирается в CI.</span></div>
       <div class="meta">
         <span class="price">от 20 000 ₽ за группу до 5 человек</span>
         <span class="tag">по договорённости</span>
@@ -161,7 +174,7 @@ footer{padding:36px 0;color:var(--dim);font-size:13.5px}
       <h3>Разбор и перенос легаси-кода</h3>
       <div class="who">тем, кому достался старый проект и сроки горят</div>
       <ul><li>Чтение чужого кода и карта архитектуры за 2–3 дня</li><li>Оценка состояния: что чинить, что выбросить, что оставить</li><li>План приоритетов по соотношению «эффект / риск»</li></ul>
-      <div class="proof"><b>Доказательство:</b> TDEvuris Security Toolkit — 3 253 строк собственного кода, стек C++17, CMake, Win32. Собирается, проверено.</div>
+      <div class="proof"><b>Доказательство:</b> <a href="https://github.com/Teivrim/TDEvuris">TDEvuris Security Toolkit</a> — 3 253 строк, стек C++17, CMake, Win32. <span class="ok">Собирается в CI.</span></div>
       <div class="meta">
         <span class="price">от 12 000 ₽</span>
         <span class="tag">2–3 дня</span>
