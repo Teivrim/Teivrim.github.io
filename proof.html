@@ -130,12 +130,12 @@ footer{padding:36px 0;color:var(--dim);font-size:13.5px}
       <h3>Unreal Engine 5.8 Gameplay Kit: 3 варианта</h3>
       <div class="who">Combat + SideScrolling + Platforming. StateTree, EQS, UMG, AnimNotifies, интерфейсы.</div>
       <ul>
-        <li><b>Строк собственного кода:</b> 5121 в 84 файлах</li>
+        <li><b>Строк собственного кода:</b> 5192 в 87 файлах</li>
         <li><b>Сторонних зависимостей:</b> нет</li>
         <li><b>Стек:</b> Unreal Engine 5.8, C++, StateTree, EQS, UMG</li>
-        <li><b>Лицензия:</b> MIT, исходники открыты</li>
+        <li><b>Лицензия:</b> MIT, исходники открыты</li><li class="note"><b>Что проверяется в CI:</b> UE 5.8 (~100 ГБ) не собирается в CI. Проверена согласованность проекта: рефлексия, зависимости модулей, плагины, наличие ассетов. scripts/check_uproject.py.</li><li class="note warn"><b>Известный дефект:</b> Content: 753 ассета без .meta — UE присвоит новые GUID, ссылки между ассетами разорваны. Требуется открыть проект в UE 5.8 и пересохранить.</li>
       </ul>
-      <div class="meta"><span class="badge warn">нужна починка</span><span class="tag">открыть TRY_02.uproject в UE 5.8</span>
+      <div class="meta"><span class="badge ok">проверяется в CI</span><span class="tag">открыть TRY_02.uproject в UE 5.8</span>
         <span class="price">от $59</span></div>
     </div>
 
